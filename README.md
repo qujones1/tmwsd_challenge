@@ -11,6 +11,28 @@ Fork this repository, clone it, install dependencies, and run it.
 ``` bash
 git clone {{your_fork_url_here}}
 npm install
+```
+
+Install postgresql for your platform, and run the following commands to setup the DB
+
+```
+psql -d postgres
+CREATE DATABASE claraprice;
+CREATE USER api;
+\q
+psql -d claraprice -U api
+CREATE TABLE message(id UUID, content TEXT);
+```
+
+To install the additional npm dependencies run
+
+```
+npm install postgres uuid
+```
+
+finally run your application with
+
+```
 node app.js
 ```
 
@@ -18,14 +40,14 @@ node app.js
 
 Complete the following requirements by using any database engine of your choice. Update this readme by checking the following boxes as you go.
 
-- [ ] As a user, I should see a form to create a new message on the homepage.
-- [ ] As a user, I should see a list of links for all created messages below the 'new message' form on the homepage.
-- [ ] As a user, when I click a link in the message list, I should be able to view the message at a unique URL.
-- [ ] As a user, when I open a message, the message should self-destruct (delete from the database).
-- [ ] As a user, I should no longer see messages on the homepage that have been viewed.
+- [x] As a user, I should see a form to create a new message on the homepage.
+- [x] As a user, I should see a list of links for all created messages below the 'new message' form on the homepage.
+- [x] As a user, when I click a link in the message list, I should be able to view the message at a unique URL.
+- [x] As a user, when I open a message, the message should self-destruct (delete from the database).
+- [x] As a user, I should no longer see messages on the homepage that have been viewed.
 
 Bonus points for making it look pretty :sparkles:
 
 ## Step 3: Submit
 
-Email me when you're done with a link to your fork.
+When you are finished, [deploy your app to Heroku](https://devcenter.heroku.com/articles/git) and send an email with a link to the Heroku app and a link to your fork. Thanks!
