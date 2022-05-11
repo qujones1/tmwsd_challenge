@@ -1,1 +1,11 @@
-h1 TMWSD is #{adjective}!
+h1 Messages
+div
+  form(id="messageForm")
+    input(type="text" name="message")
+    button(type="submit") Submit
+  ul(id="messageList")
+    each val, index in messages
+      li
+        a(href="/message/" + val.id) Message #{val.id}
+  script
+    include script.js
